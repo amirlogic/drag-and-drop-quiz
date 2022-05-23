@@ -1,25 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { ReactEventHandler, useState } from 'react';
+
+import initData from './initData';
+import Column from './columnContent';
+
+
 
 function App() {
+
+  const [ activeQuiz, setActiveQuiz ] = useState("musicbands");
+
+  //const [ colItems, setColItems ] = useState(columnData);
+
+  const onQuizSelect = (e:React.ChangeEvent<HTMLSelectElement>)=>{
+
+    setActiveQuiz(e.target.value);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <>
+      
+      <div><select onChange={onQuizSelect}>
+        { Object.keys(initData).map( (quiz:string)=>{
+
+          return <option value={quiz}>{initData[quiz].title}</option>;
+        }) }
+        </select></div>
+
+      <div className="">
+        { initData[activeQuiz].text }
+      </div>
+
+      <Column id="origin" title="Start Here" track={activeQuiz} />
+
+      { initData[activeQuiz].cols.map( (quizData) =>{
+
+          return <div>{ quizData.name }</div>
+      }) }
+      
+    </>
   );
 }
 
