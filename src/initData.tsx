@@ -17,7 +17,7 @@ const initData:StartData = {
         cols:[
             { id:"uk", name:"UK" },
             { id:"usa", name:"USA" },
-            { id:"se", name:"Sweden" }
+            { id:"sweden", name:"Sweden" }
         ] 
     },
 

@@ -20,23 +20,27 @@ function App() {
 
     <>
       
-      <div><select onChange={onQuizSelect}>
+      <div className="p-2 text-xl"><select onChange={onQuizSelect}>
         { Object.keys(initData).map( (quiz:string)=>{
 
           return <option value={quiz}>{initData[quiz].title}</option>;
         }) }
         </select></div>
 
-      <div className="">
+      <div className="p-2 text-lg">
         { initData[activeQuiz].text }
       </div>
 
-      <Column id="origin" title="Start Here" track={activeQuiz} />
+      <div className="grid grid-cols-4 gap-4 mx-8 my-8">
 
-      { initData[activeQuiz].cols.map( (quizData) =>{
+        <Column id="origin" title="Start Here" track={activeQuiz} />
 
-          return <div>{ quizData.name }</div>
-      }) }
+        { initData[activeQuiz].cols.map( (quizData) =>{
+
+            return <Column id={quizData.id} title={quizData.name} track={activeQuiz} />
+        }) }
+
+      </div>
       
     </>
   );
