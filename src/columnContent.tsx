@@ -5,7 +5,7 @@ interface ColumnContent {
     [key:string]:{ id:string, text:string, curcol:string, dstcol:string }[]
 }
 
-const ColumnData:ColumnContent = {
+export const columnData:ColumnContent = {
 
     "musicbands":[
         { id:"abba", text:"ABBA", curcol:"origin", dstcol:"sweden" },
@@ -28,7 +28,9 @@ const ColumnData:ColumnContent = {
 
 }
 
-function Column( props:{id:string, title:string, track:string } ) {
+// We have a state problem here...
+
+function Column( props:{id:string, title:string, track:string, data:ColumnContent } ) {
 
     return (
   
@@ -36,7 +38,7 @@ function Column( props:{id:string, title:string, track:string } ) {
   
         <div className="text-center font-semibold m-2">{props.title}</div>
 
-        { ColumnData[props.track].filter( (frow)=>{
+        { props.data[props.track].filter( (frow)=>{
 
           return frow.curcol === props.id;
 
