@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { DragDropContext, DropResult, DragDropContextProps, DraggableDescriptor, DragStart, DragUpdate } from 'react-beautiful-dnd';
+import { DragDropContext, DropResult, DragStart, DragUpdate } from 'react-beautiful-dnd';  // DragDropContextProps, DraggableDescriptor, 
 import initData from './initData';
 import Column, { columnData } from './columnContent';
 
@@ -134,11 +134,11 @@ function App() {
 
       <div className="grid grid-cols-4 gap-4 mx-8 my-8">
 
-        <Column id="origin" title="Start Here" track={activeQuiz} data={colItems} />
+        <Column id="origin" title="Start Here" track={activeQuiz} data={colItems} reveal={reveal} />
 
         { initData[activeQuiz].cols.map( (quizData) =>{
 
-            return <Column id={quizData.id} title={quizData.name} track={activeQuiz} data={colItems} />
+            return <Column id={quizData.id} title={quizData.name} track={activeQuiz} data={colItems} reveal={reveal} />
         }) }
 
       </div>

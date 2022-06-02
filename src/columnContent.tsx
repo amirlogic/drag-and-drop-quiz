@@ -1,5 +1,5 @@
 
-import { Droppable, Draggable, DragDropContextProps, DraggableDescriptor } from 'react-beautiful-dnd';
+import { Droppable, Draggable } from 'react-beautiful-dnd';  // , DragDropContextProps, DraggableDescriptor
 
 interface ColumnContent {
 
@@ -31,7 +31,7 @@ export const columnData:ColumnContent = {
 
 
 
-function Column( props:{id:string, title:string, track:string, data:ColumnContent } ) {
+function Column( props:{id:string, title:string, track:string, data:ColumnContent, reveal:boolean } ) {
 
     return (
   
