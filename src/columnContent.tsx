@@ -1,4 +1,5 @@
 
+import { Droppable, Draggable, DragDropContextProps, DraggableDescriptor } from 'react-beautiful-dnd';
 
 interface ColumnContent {
 
@@ -28,27 +29,51 @@ export const columnData:ColumnContent = {
 
 }
 
-// We have a state problem here...
+
 
 function Column( props:{id:string, title:string, track:string, data:ColumnContent } ) {
 
     return (
   
-      <div className="bg-slate-50">
-  
-        <div className="text-center font-semibold m-2">{props.title}</div>
+      <Droppable droppableId={props.id}>
 
-        { props.data[props.track].filter( (frow)=>{
+        {(provided, snapshot) => (
 
-          return frow.curcol === props.id;
+          <div ref={provided.innerRef} className="bg-slate-50">
+      
+            <div className="text-center font-semibold m-2">{props.title}</div>
 
-        } ).map( (row, indx)=>{
-  
-          return <div className="p-2 bg-blue-100 m-2">{row.text}</div>
-  
-        } ) }
-  
-      </div>
+            { props.data[props.track].filter( (frow)=>{
+
+              return frow.curcol === props.id;
+
+            } ).map( (row, indx)=>{
+      
+              return <Draggable draggableId={row.id} index={indx}>
+                      {(gprovided, gsnapshot) => (
+
+                       <div 
+                       ref={gprovided.innerRef}
+                       {...gprovided.draggableProps}
+                       {...gprovided.dragHandleProps} 
+                       className="p-2 bg-blue-100 m-2">
+
+                         {row.text}
+
+                       </div>
+
+                      )}
+                     </Draggable>
+      
+            } ) }
+      
+          {provided.placeholder}
+
+          </div>
+
+        )}
+
+      </Droppable>
     );
   }
 
