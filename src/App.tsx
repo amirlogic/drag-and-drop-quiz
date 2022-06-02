@@ -32,7 +32,6 @@ function App() {
 
       setColItems( {...colItems,...upstack} );
 
-      //console.log(colItems)
 
     }
     else{
