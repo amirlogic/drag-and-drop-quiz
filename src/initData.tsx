@@ -11,6 +11,17 @@ interface StaticData {
 
 const initData:StartData = {
 
+    "foods":{ 
+        title:"Essen",
+        text:"Blablub",
+        cols:[
+            { id:"vegetable", name:"Gemüse" },
+            { id:"fruit", name:"Obst" },
+            { id:"sweets", name:"Süßigkeiten" }
+            
+        ] 
+    },
+
     "musicbands":{ 
         title:"Music bands",
         text:"Drag music groups to their corresponding country of origin",
@@ -39,7 +50,7 @@ const initData:StartData = {
             { id:"dna", name:"DNA" }
             
         ] 
-    },
+    }
 
 }
 
