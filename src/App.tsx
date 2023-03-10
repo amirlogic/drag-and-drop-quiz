@@ -15,54 +15,48 @@ function App() {
   }
 
 
-  const onCheckboxCorrectionSwitch = (e: React.ChangeEvent<HTMLInputElement>) => {
+  function onCheckboxCorrectionSwitch() {
+    console.log('true')
+    setReveal(true);
+    let stack = colItems[activeQuiz];
 
-    if (e.target.checked) {
-      setReveal(true);
-      let stack = colItems[activeQuiz];
-
-      for (let i = 0; i < stack.length; i++) {
-        stack[i].curcol = stack[i].dstcol;
-      }
-
-      let upstack = { activeQuiz: stack }
-      setColItems({ ...colItems, ...upstack });
+    for (let i = 0; i < stack.length; i++) {
+      stack[i].curcol = stack[i].dstcol;
+      stack[i].validColor = "yellowGreen";
     }
 
+    let upstack = { activeQuiz: stack }
+    setColItems({ ...colItems, ...upstack });
+    
   }
 
-  const onCheckboxStartOverSwitch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.checked) {
-      setReveal(false);
-      let stack = colItems[activeQuiz];
-      for (let i = 0; i < stack.length; i++) {
-        stack[i].curcol = "origin";
-        stack[i].validColor = "lightSkyBlue";
-      }
-      let upstack = { activeQuiz: stack }
-      setColItems({ ...colItems, ...upstack });
+  function onCheckboxStartOverSwitch() {
+    setReveal(false);
+    let stack = colItems[activeQuiz];
+    for (let i = 0; i < stack.length; i++) {
+      stack[i].curcol = "origin";
+      stack[i].validColor = "lightSkyBlue";
     }
-
+    let upstack = { activeQuiz: stack }
+    setColItems({ ...colItems, ...upstack });
   }
 
-  const onCheckboxValidSwitch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.checked) {
-      let stack = colItems[activeQuiz];
-      let updatedStack = [];
-  
-      for (let i = 0; i < stack.length; i++) {
-        let item = stack[i];
-        if (item.curcol === item.dstcol) {
-          item.validColor = 'yellowGreen';
-        } else {
-          item.validColor = 'tomato';
-        }
-        updatedStack.push(item);
+  function onCheckboxValidSwitch() {
+    let stack = colItems[activeQuiz];
+    let updatedStack = [];
+
+    for (let i = 0; i < stack.length; i++) {
+      let item = stack[i];
+      if (item.curcol === item.dstcol) {
+        item.validColor = 'yellowGreen';
+      } else {
+        item.validColor = 'tomato';
       }
-  
-      let upstack = { activeQuiz: updatedStack }
-      setColItems({ ...colItems, ...upstack });
+      updatedStack.push(item);
     }
+
+    let upstack = { activeQuiz: updatedStack }
+    setColItems({ ...colItems, ...upstack }); 
   }
 
   const onBeforeCapture = () => {
@@ -107,13 +101,6 @@ function App() {
 
     setColItems({ ...colItems, ...upstack });
 
-
-    /* 
-    let [draggableText] = listData.splice(source.index,1);
-    listData.splice(destination.index,0,draggableText);
-
-    setLiveLog( JSON.stringify(result,null,"\t") );
-    //console.log(result); */
   };
 
   return (
@@ -126,9 +113,13 @@ function App() {
             return <option value={quiz}>{initData[quiz].title}</option>;
           })}
         </select>
-        <input type="checkbox" onChange={onCheckboxCorrectionSwitch} /> Korrektur
-        <input type="checkbox" onChange={onCheckboxValidSwitch} /> Alles richtig?
-        <input type="checkbox" onChange={onCheckboxStartOverSwitch} /> Neustart
+        {/* <input type="button" onChange={onCheckboxCorrectionSwitch} /> Korrektur */}
+        {/* <input type="button" onChange={onCheckboxValidSwitch} /> Alles richtig? */}
+        {/* <input type="button" onChange={onCheckboxStartOverSwitch} /> Neustart */}
+        <button onClick={onCheckboxCorrectionSwitch}>Korrektur</button>
+        <button onClick={onCheckboxValidSwitch}>Alles richtig?</button>
+        <button onClick={onCheckboxStartOverSwitch}>Neustart</button>
+      
       </div>
 
       <div className="p-2 text-lg">
