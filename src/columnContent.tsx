@@ -9,7 +9,7 @@ interface ColumnContent {
 
 export const columnData:ColumnContent = {
 
-    "musicbands":[
+    "musicbands":[  
         { id:"abba", text:"ABBA", src: "", curcol:"origin", dstcol:"sweden" },
         { id:"beatles", text:"The Beatles", src: "", curcol:"origin", dstcol:"uk" },
         { id:"aob", text:"Ace of Base", src: "", curcol:"origin", dstcol:"sweden" },
@@ -65,10 +65,7 @@ function Column( props:{id:string, title:string, track:string, data:ColumnConten
               
 
             } ).map( (row, indx)=>{
-              console.log(row)
-              console.log(row.src)
-              console.log(`./${row.src}`)
-              return <Draggable draggableId={row.id} index={indx}>
+              return <Draggable key={row.id} draggableId={row.id} index={indx}>
                       {(gprovided, gsnapshot) => (
 
                        <div 
