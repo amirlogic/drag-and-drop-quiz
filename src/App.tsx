@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { DragDropContext, DropResult, DragStart, DragUpdate } from 'react-beautiful-dnd';  // DragDropContextProps, DraggableDescriptor, 
 import initData from './initData';
 import Column, { columnData } from './columnContent';
-
+import styled from 'styled-components';
 
 
 function App() {
@@ -13,6 +13,16 @@ function App() {
   const onQuizSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setActiveQuiz(e.target.value);
   }
+
+  const Button = styled.button`
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  padding: 10px 60px;
+  border-radius: 5px;
+  margin: 10px 0px;
+  cursor: pointer;
+`;
 
 
   function onCheckboxCorrectionSwitch() {
@@ -113,12 +123,9 @@ function App() {
             return <option value={quiz}>{initData[quiz].title}</option>;
           })}
         </select>
-        {/* <input type="button" onChange={onCheckboxCorrectionSwitch} /> Korrektur */}
-        {/* <input type="button" onChange={onCheckboxValidSwitch} /> Alles richtig? */}
-        {/* <input type="button" onChange={onCheckboxStartOverSwitch} /> Neustart */}
-        <button onClick={onCheckboxCorrectionSwitch}>Korrektur</button>
-        <button onClick={onCheckboxValidSwitch}>Alles richtig?</button>
-        <button onClick={onCheckboxStartOverSwitch}>Neustart</button>
+        <Button onClick={onCheckboxCorrectionSwitch}>Korrektur</Button>
+        <Button onClick={onCheckboxValidSwitch}>Alles richtig?</Button>
+        <Button onClick={onCheckboxStartOverSwitch}>Neustart</Button>
       
       </div>
 
@@ -134,13 +141,13 @@ function App() {
         onDragEnd={onDragEnd}
       >
 
-        <div className="grid grid-cols-4 gap-4 mx-8 my-8">
+        <div className="grid grid-cols-4 gap-4 mx-8 my-8" style={{ backgroundColor: 'blue' }}>
 
-          <Column id="origin" title="Start Here" track={activeQuiz} data={colItems} reveal={reveal} />
+          <Column id="origin" title="Start" track={activeQuiz} data={colItems} reveal={reveal}/>
 
           {initData[activeQuiz].cols.map((quizData) => {
 
-            return <Column id={quizData.id} title={quizData.name} track={activeQuiz} data={colItems} reveal={reveal} />
+            return <Column id={quizData.id} title={quizData.name} track={activeQuiz} data={colItems} reveal={reveal}/>
           })}
 
         </div>
