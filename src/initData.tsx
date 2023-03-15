@@ -13,7 +13,7 @@ const initData:StartData = {
 
     "foods":{ 
         title:"Essen",
-        text:"Blablub",
+        text:"",
         cols:[
             { id:"vegetable", name:"Gemüse" },
             { id:"fruit", name:"Obst" },

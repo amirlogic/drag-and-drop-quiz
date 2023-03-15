@@ -19,7 +19,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "CHOKIDAR_USEPOLLING=true react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -44,6 +44,7 @@
   },
   "devDependencies": {
     "@types/react-beautiful-dnd": "^13.1.2",
+    "@types/react-select": "^5.0.1",
     "@types/styled-components": "^5.1.26",
     "autoprefixer": "^10.4.7",
     "postcss": "^8.4.14",

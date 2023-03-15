@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { DragDropContext, DropResult, DragStart, DragUpdate } from 'react-beautiful-dnd';  // DragDropContextProps, DraggableDescriptor, 
 import initData from './initData';
-import Column, { columnData } from './columnContent';
-import styled from 'styled-components';
+import { columnData } from './columnContent';
+import Column from './Column';
+import styles from './styles.module.css';
+import schokolade from './metacom/food/schokolade.jpg'
 
 
 function App() {
@@ -14,15 +16,17 @@ function App() {
     setActiveQuiz(e.target.value);
   }
 
-  const Button = styled.button`
-  background-color: black;
-  color: white;
-  font-size: 20px;
-  padding: 10px 60px;
-  border-radius: 5px;
-  margin: 10px 0px;
-  cursor: pointer;
-`;
+  let currentQuiz;
+
+  const bgColors = {
+    "Default": "#81b71a",
+    "green": "#03a60f",
+    "yellow": "#f2ba0f",
+    "red": "#f22828",
+    "blue": "#023e74",
+    "beige": "#F6BB42",
+    "turquise": "#8cd9d1"
+  };
 
 
   function onCheckboxCorrectionSwitch() {
@@ -37,7 +41,7 @@ function App() {
 
     let upstack = { activeQuiz: stack }
     setColItems({ ...colItems, ...upstack });
-    
+
   }
 
   function onCheckboxStartOverSwitch() {
@@ -66,7 +70,7 @@ function App() {
     }
 
     let upstack = { activeQuiz: updatedStack }
-    setColItems({ ...colItems, ...upstack }); 
+    setColItems({ ...colItems, ...upstack });
   }
 
   const onBeforeCapture = () => {
@@ -115,18 +119,27 @@ function App() {
 
   return (
 
-    <>
+    <div className={styles.back}>
 
-      <div className="p-2 text-xl">
-        <select onChange={onQuizSelect}>
+      <div className={styles.header} id="header">
+        <select id="dropDown" className={styles.dropdown} style={{ float: 'left' }} onChange={onQuizSelect}>
           {Object.keys(initData).map((quiz: string) => {
-            return <option value={quiz}>{initData[quiz].title}</option>;
+            currentQuiz = initData[quiz].title;
+            return (
+              <option key={quiz} value={quiz} style={{ backgroundImage: `url(${schokolade})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'left center', paddingLeft: '40px' }}>
+                {initData[quiz].title}
+              </option>
+            );
           })}
         </select>
-        <Button onClick={onCheckboxCorrectionSwitch}>Korrektur</Button>
-        <Button onClick={onCheckboxValidSwitch}>Alles richtig?</Button>
-        <Button onClick={onCheckboxStartOverSwitch}>Neustart</Button>
-      
+        <div id="title" className={styles.headertitle}>{currentQuiz}</div>
+      </div>
+
+      <div className="p-2 text-xl">
+        <button className={styles.btn} style={{ backgroundColor: bgColors.green }} onClick={onCheckboxValidSwitch}>Alles richtig?</button>
+        <button className={styles.btn} style={{ backgroundColor: bgColors.yellow }} onClick={onCheckboxCorrectionSwitch}>Korrektur</button>
+        <button className={styles.btn} style={{ backgroundColor: bgColors.red }} onClick={onCheckboxStartOverSwitch}>Neustart</button>
+        <button className={styles.btn} style={{ backgroundColor: bgColors.blue, marginLeft: 'auto', margin: '', float: 'left' }} onClick={onCheckboxStartOverSwitch}>Neues Spiel</button>
       </div>
 
       <div className="p-2 text-lg">
@@ -141,20 +154,20 @@ function App() {
         onDragEnd={onDragEnd}
       >
 
-        <div className="grid grid-cols-4 gap-4 mx-8 my-8" style={{ backgroundColor: 'blue' }}>
+        <div className="grid grid-cols-4 gap-4 mx-8 my-8">
 
-          <Column id="origin" title="Start" track={activeQuiz} data={colItems} reveal={reveal}/>
+          <Column id="origin" title="Start" track={activeQuiz} data={colItems} reveal={reveal} />
 
           {initData[activeQuiz].cols.map((quizData) => {
 
-            return <Column id={quizData.id} title={quizData.name} track={activeQuiz} data={colItems} reveal={reveal}/>
+            return <Column id={quizData.id} title={quizData.name} track={activeQuiz} data={colItems} reveal={reveal} />
           })}
 
         </div>
 
       </DragDropContext>
 
-    </>
+    </div>
   );
 }
 
