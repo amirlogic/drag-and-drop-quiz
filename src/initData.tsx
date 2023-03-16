@@ -20,6 +20,16 @@ const initData:StartData = {
             { id:"sweets", name:"Süßigkeiten" }
             
         ] 
+    },
+    "moods":{ 
+        title:"BLALALA",
+        text:"",
+        cols:[
+            { id:"vegetable", name:"asdf" },
+            { id:"fruit", name:"jklö" },
+            { id:"sweets", name:"iajasdf" }
+            
+        ] 
     }
 
 }

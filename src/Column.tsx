@@ -25,14 +25,10 @@ function Column(props: { id: string, title: string, track: string, data: ColumnC
                                 )}
                             </Draggable>
                         );
-
-
                     })}
                     {provided.placeholder}
                 </div>
-
             )}
-
         </Droppable>
     );
 }
