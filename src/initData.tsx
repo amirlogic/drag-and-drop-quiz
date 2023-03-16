@@ -6,7 +6,8 @@ interface StartData {
 interface StaticData {
     title:string,
     text:string,
-    cols:{id:string,name:string}[]
+    src: string,
+    cols:{id:string,name:string, src:string}[]
 }
 
 const initData:StartData = {
@@ -14,20 +15,22 @@ const initData:StartData = {
     "foods":{ 
         title:"Essen",
         text:"",
+        src: "metacom/food/lebensmittel.jpg",
         cols:[
-            { id:"vegetable", name:"Gemüse" },
-            { id:"fruit", name:"Obst" },
-            { id:"sweets", name:"Süßigkeiten" }
+            { id:"vegetable", name:"Gemüse", src: "metacom/food/gemuese.jpg"},
+            { id:"fruit", name:"Obst", src: "metacom/food/obst.jpg"},
+            { id:"sweets", name:"Süßigkeiten", src: "metacom/food/suessigkeiten.jpg" }
             
         ] 
     },
     "moods":{ 
         title:"BLALALA",
         text:"",
+        src: "metacom/food/radieschen.jpg",
         cols:[
-            { id:"vegetable", name:"asdf" },
-            { id:"fruit", name:"jklö" },
-            { id:"sweets", name:"iajasdf" }
+            { id:"vegetable", name:"asdf", src: "metacom/food/radieschen.jpg" },
+            { id:"fruit", name:"jklö", src: "metacom/food/radieschen.jpg" },
+            { id:"sweets", name:"iajasdf", src: "metacom/food/radieschen.jpg" }
             
         ] 
     }

@@ -11,6 +11,9 @@
 # production
 /build
 
+# all pictures
+/src/metacom/existing
+
 # misc
 .DS_Store
 .env.local

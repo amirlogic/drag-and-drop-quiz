@@ -90,18 +90,7 @@ function App() {
   }
 
   function onCheckboxStartNewGameSwitch() {
-    // setReveal(false);
-    // let stack = shuffle([...columnData[activeQuiz]]); // TODO: HERE
-    // for (let i = 0; i < stack.length; i++) {
-    //   stack[i].curcol = "origin";
-    //   stack[i].validColor = "lightSkyBlue";
-    // }
-    // // let upstack = { activeQuiz: stack }
-    // // setColItems({ ...colItems, ...upstack });
-    // let updatedData = { ...columnData, [activeQuiz]: stack }; // update the shuffled quiz items in columnData
-    // setColItems(updatedData);
     window.location.reload();
-
   }
 
   function onCheckboxValidSwitch() {
@@ -197,9 +186,9 @@ function App() {
 
         <div className="grid grid-cols-4 gap-4 mx-8 my-8">
 
-          <Column id="origin" title="Start" track={activeQuiz} data={colItems} reveal={reveal} />
+          <Column id="origin" title="Start" src="metacom/start.jpg" track={activeQuiz} data={colItems} reveal={reveal} />
           {initData[activeQuiz].cols.map((quizData) => {
-            return <Column id={quizData.id} title={quizData.name} track={activeQuiz} data={colItems} reveal={reveal} />
+            return <Column id={quizData.id} title={quizData.name} src={quizData.src} track={activeQuiz} data={colItems} reveal={reveal} />
           })}
 
         </div>

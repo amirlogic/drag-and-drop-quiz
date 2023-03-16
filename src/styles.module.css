@@ -1,113 +1,120 @@
 .column {
-    width: 398px;
-    height: 901px;
-    /* margin: 20px 16px 0 140px; */
-    padding: 32px 20px 809.5px;
-    /* opacity: 0.52; */
-    border-radius: 43px;
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-    background-color: #8cd9d1;
-  }
+  width: 398px;
+  height: 1901px;
+  /* margin: 20px 16px 0 140px; */
+  padding: 32px 20px 809.5px;
+  /* opacity: 0.52; */
+  border-radius: 43px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #8cd9d1;
+}
 
-  .drop {
-    /* background-color: white; */
-    border-radius: 10px;
-    border: none;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    color: #023e74;
-    text-align: center;
-    font-size: 18px;
-    font-weight: 500;
-    padding: 12px;
-    margin-right: 20px;
-  }
+.columnimg {
+  width: 102px;
+  height: 98px;
+  margin: 0 128.5px 10px 127.5px;
+  border-radius: 20px;
+}
+
+.drop {
+  /* background-color: white; */
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  color: #023e74;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 12px;
+  margin-right: 20px;
+}
 
 .drop img {
-    width: 90%;
-    height: 90%;
-    transform: translate(5%, 0%);
+  width: 90%;
+  height: 90%;
+  transform: translate(5%, 0%);
 }
 
 .btn {
-    width: 260px;
-    height: 44px;
-    margin: 20px 29px 20px 16px;
-    /* padding: 8px 91px 10px 87px; */
-    border-radius: 10px;
-    white-space: nowrap;
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-    /* background-color: #03a60f; */
+  width: 260px;
+  height: 44px;
+  margin: 20px 29px 20px 16px;
+  /* padding: 8px 91px 10px 87px; */
+  border-radius: 10px;
+  white-space: nowrap;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  /* background-color: #03a60f; */
 }
 
 .header {
-    width: 1920px;
-    height: 68px;
-    margin: 0 0 20px;
-    padding: 8px 906px 7px 140px;
-    background-color: #023e74;
+  width: 1920px;
+  height: 68px;
+  margin: 0 0 20px;
+  padding: 8px 906px 7px 140px;
+  background-color: #023e74;
 }
 
 .headertitle {
-    width: 108px;
-    height: 53px;
-    margin: 0 0 0 506px;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 40px;
-    font-weight: 500;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    text-align: center;
-    color: white;
-  }
+  width: 108px;
+  height: 53px;
+  margin: 0 0 0 506px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 40px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+}
 
-  .dropdown {
-    background-color: white;
-    border-radius: 10px;
-    border: none;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    color: #023e74;
-    font-family: Roboto;
-    font-size: 18px;
-    font-weight: 500;
-    padding: 12px;
-    margin-right: 20px;
-    width: 200px;
-  }
-  
-  .dropdown:focus {
-    outline: none;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
-  }
+.dropdown {
+  background-color: white;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  color: #023e74;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 12px;
+  margin-right: 20px;
+  width: 200px;
+}
+
+.dropdown:focus {
+  outline: none;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
 
 
 
 .textheader {
-    width: 43px;
-    height: 21px;
-    margin: 15px 187.3px 9px 20px;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.5;
-    letter-spacing: normal;
-    text-align: left;
-    color: white;
+  width: 43px;
+  height: 21px;
+  margin: 15px 187.3px 9px 20px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: white;
 }
 
 .back {
-    width: 1920px;
-    height: 1080px;
-    padding: 0 0 27px;
-    /* background-color: var(--white); */
+  width: 1920px;
+  height: 1080px;
+  padding: 0 0 27px;
+  /* background-color: var(--white); */
 }
 
 .linie {
-    width: 358px;
-    height: 1px;
-    margin: 20px 0 0;
-    background-color: var(--black);
-  }
+  width: 358px;
+  height: 3px;
+  margin: 20px 0 0;
+  color:rgba(0, 0, 0, 0.3)
+}
