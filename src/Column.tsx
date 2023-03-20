@@ -9,8 +9,10 @@ function Column(props: { id: string, title: string, src: string, track: string, 
             {(provided, snapshot) => (
                 <div ref={provided.innerRef} className={styles.column}>
                     <img className={styles.columnimg} src={require(`./${props.src}`)} alt={props.title}/>
-                    <div className="text-center font-semibold m-2">{props.title}</div>
-                    <div className={styles.linie} />
+                    <div className="text-center font-semibold m-2">
+                        {props.title}
+                    </div>
+                    <div className={styles.seperationline} />
                     {props.data[props.track].filter((frow) => {
                         return frow.curcol === props.id;
                     }).map((row, indx) => {
@@ -20,6 +22,7 @@ function Column(props: { id: string, title: string, src: string, track: string, 
                                     <div ref={gprovided.innerRef} {...gprovided.draggableProps} {...gprovided.dragHandleProps}>
                                         <div className={styles.drop} style={{ backgroundColor: `${row.validColor}` }}>
                                             <img src={require(`./${row.src}`)} alt={row.text}/>
+                                            {"\n"}
                                             {row.text}
                                         </div>
                                     </div>
