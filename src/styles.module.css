@@ -50,6 +50,7 @@
   border-radius: 10px;
   white-space: nowrap;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  color: white;
   /* background-color: #03a60f; */
 }
 
@@ -81,13 +82,6 @@
   line-height: 1.5;
   color: white;
   margin: 15px 0 9px 20px;
-}
-
-.back {
-  width: 1920px;
-  height: 1080px;
-  padding: 0 0 27px;
-  /* background-color: var(--white); */
 }
 
 .dropdown {

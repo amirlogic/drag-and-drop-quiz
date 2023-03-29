@@ -127,30 +127,37 @@ function App() {
   const onDragEnd = (result: DropResult) => {
 
     let { source, destination, draggableId } = result;
+    console.log(result)
 
     if (!destination) {
-      console.log("destination is not valid");
       return;
     }
 
-    if (destination.droppableId === source.droppableId) {
-      console.log("no change");
-      return;
-    }
+    
     let stack = colItems[activeQuiz];
     for (let i = 0; i < stack.length; i++) {
       if (stack[i].id === draggableId) {
         stack[i].curcol = destination.droppableId;
+        stack[i].curindex = destination.index;
+
+        for (let j = i; j < stack.length; j++) {
+          if (stack[j].id != draggableId) {
+            stack[j].curindex += 1;
+          }
+        }
       }
+
     }
     let upstack = { activeQuiz: stack }
+    console.log(upstack)
     setColItems({ ...colItems, ...upstack });
+    console.log(colItems)
 
   };
 
   return (
 
-    <div className={styles.back}>
+    <div>
 
       <div className={styles.header} id="header">
         <select id="dropDown" className={styles.dropdown} style={{ float: 'left' }} onChange={onQuizSelect}>
@@ -167,9 +174,9 @@ function App() {
 
       <div className="p-2 text-xl">
         <button className={styles.btn} style={{ backgroundColor: bgColors.green }} onClick={onCheckboxValidSwitch}>Alles richtig?</button>
-        <button className={styles.btn} style={{ backgroundColor: bgColors.yellow }} onClick={onCheckboxCorrectionSwitch}>Korrektur</button>
-        <button className={styles.btn} style={{ backgroundColor: bgColors.red, marginRight: 'auto', float: 'right' }} onClick={onCheckboxStartOverSwitch}>Neustart</button>
-        <button className={styles.btn} style={{ backgroundColor: bgColors.blue, marginRight: 'auto', float: 'right' }} onClick={onCheckboxStartNewGameSwitch}>Neues Spiel</button>
+        <button className={styles.btn} style={{ backgroundColor: bgColors.red }} onClick={onCheckboxCorrectionSwitch}>Korrektur</button>
+        <button className={styles.btn} style={{ backgroundColor: bgColors.yellow, float: 'right' }} onClick={onCheckboxStartOverSwitch}>Neustart</button>
+        <button className={styles.btn} style={{ backgroundColor: bgColors.blue, float: 'right' }} onClick={onCheckboxStartNewGameSwitch}>Neues Spiel</button>
       </div>
 
       <div className="p-2 text-lg">

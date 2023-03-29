@@ -1,8 +1,12 @@
-import { Droppable, Draggable } from 'react-beautiful-dnd';  // , DragDropContextProps, DraggableDescriptor
+import { Droppable, Draggable } from 'react-beautiful-dnd';
 import { ColumnContent } from './columnContent';
 import styles from './styles.module.css';
 
 function Column(props: { id: string, title: string, src: string, track: string, data: ColumnContent, reveal: boolean }) {
+    const filteredRows = props.data[props.track].filter((frow) => {
+        return frow.curcol === props.id;
+    });
+    const sortedRows = filteredRows.sort((a, b) => a.curindex - b.curindex);
 
     return (
         <Droppable droppableId={props.id}>
@@ -13,9 +17,7 @@ function Column(props: { id: string, title: string, src: string, track: string, 
                         {props.title}
                     </div>
                     <div className={styles.seperationline} />
-                    {props.data[props.track].filter((frow) => {
-                        return frow.curcol === props.id;
-                    }).map((row, indx) => {
+                    {sortedRows.map((row, indx) => {
                         return (
                             <Draggable key={row.id} draggableId={row.id} index={indx}>
                                 {(gprovided, gsnapshot) => (
