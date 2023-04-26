@@ -1,18 +1,23 @@
+import { Key } from "react";
 
 interface StartData {
     [key: string]: StaticData
 }
 
 interface StaticData {
+    elements: any | null | undefined;
+    id: Key | null | undefined;
     title:string,
     text:string,
     src: string,
     cols:{id:string,name:string, src:string}[]
 }
 
-const initData:StartData = {
+const initialData:StartData = {
 
     "foods":{ 
+        id: "",
+        elements: "",
         title:"Essen",
         text:"",
         src: "metacom/food/lebensmittel.jpg",
@@ -22,19 +27,7 @@ const initData:StartData = {
             { id:"sweets", name:"Süßigkeiten", src: "metacom/food/suessigkeiten.jpg" }
             
         ] 
-    },
-    "transport":{ 
-        title:"Fahrzeuge",
-        text:"",
-        src: "metacom/food/fahrzeuge.jpg",
-        cols:[
-            { id:"land", name:"Land/Erde", src: "metacom/transport/Erde.jpg" },
-            { id:"luft", name:"Luft/Himmel", src: "metacom/transport/himmel.jpg" },
-            { id:"wasser", name:"Wasser", src: "metacom/transport/see.jpg" }
-            
-        ] 
     }
-
 }
 
-export default initData;
+export default initialData;

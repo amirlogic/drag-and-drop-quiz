@@ -2,7 +2,9 @@ import { Droppable, Draggable } from 'react-beautiful-dnd';
 import { ColumnContent } from './columnContent';
 import styles from './styles.module.css';
 
-function Column(props: { id: string, title: string, src: string, track: string, data: ColumnContent, reveal: boolean }) {
+function Column(props: { id: string, title: string, src: string, track: string, data: ColumnContent, reveal: boolean, hideRowText: any }) {
+    const { hideRowText } = props;
+
     const filteredRows = props.data[props.track].filter((frow) => {
         return frow.curcol === props.id;
     });
@@ -25,7 +27,7 @@ function Column(props: { id: string, title: string, src: string, track: string, 
                                         <div className={styles.drop} style={{ backgroundColor: `${row.validColor}` }}>
                                             <img src={require(`./${row.src}`)} alt={row.text}/>
                                             {"\n"}
-                                            {row.text}
+                                            {hideRowText ? null : <>{row.text}</>}
                                         </div>
                                     </div>
                                 )}
